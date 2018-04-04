@@ -2,6 +2,10 @@ service: stock-notifier
 provider:
   name: aws
   runtime: nodejs6.10
+  region: ap-south-1
+  environment:
+    ONESIGNAL_APP_ID: "36532926-08bb-440a-a357-396cd36a9aa0"
+    ONESIGNAL_AUTH_KEY: "Basic Y2VlNTFmOTAtNGUzYy00Mzc5LWIxZDctOTQwNTI5ZDdhZTQz"
 functions:
   stocknotifier:
     handler: handler.stocknotifier

@@ -12,7 +12,7 @@ function sendPushNotification(stocks)
 {
 
       var msg = {
-		"app_id" : "36532926-08bb-440a-a357-396cd36a9aa0",
+		"app_id" : process.env.ONESIGNAL_APP_ID,
 		"contents" : {"en": stocks} ,
 		"included_segments" : ["All"]
 		} ;
@@ -20,7 +20,7 @@ function sendPushNotification(stocks)
 		var headers =
 			{
             'Content-Type': 'application/json',
-            'Authorization': 'Basic Y2VlNTFmOTAtNGUzYy00Mzc5LWIxZDctOTQwNTI5ZDdhZTQz' 
+            'Authorization': process.env.ONESIGNAL_AUTH_KEY 
         }
         return request.post('https://onesignal.com/api/v1/notifications', msg, {headers})
 }
