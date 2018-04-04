@@ -1,0 +1,7 @@
+service: stock-notifier
+provider:
+  name: aws
+  runtime: nodejs6.10
+functions:
+  stocknotifier:
+    handler: handler.stocknotifier
