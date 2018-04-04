@@ -21,8 +21,9 @@ The app basically scraps NSE / BSE stock websites and send pushnotification to t
     serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ##### Running Locally with Serverless
     serverless invoke local --function stocknotifier
-### Deploying into AWS Lambda
+##### Deploying into AWS Lambda
     serverless deploy function -f hello
-### S3 Website Hosting to Recive Pushnotifications from Lambda + OneSignal
-### Setting up OneSignal 
-### S3 Bucket and static website hosting
+### Receving Pushnotification from Lambda + OneSignal
+##### S3 Website Hosting to Recive Pushnotifications from Lambda + OneSignal
+##### Setting up OneSignal 
+##### S3 Bucket and static website hosting
