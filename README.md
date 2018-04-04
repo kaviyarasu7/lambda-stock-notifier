@@ -2,7 +2,7 @@
 
 The app basically scraps NSE / BSE stock websites and send pushnotification to the web subscribers based on the condition defined into code.
 
-###Features of Application
+### Features of Application
 1. Compeletly serverless with the help of serverless
 2. With lambda and Onesignal timely notification alert to the subscribers.
 
