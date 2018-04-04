@@ -13,26 +13,16 @@ The app basically scraps NSE / BSE stock websites and send pushnotification to t
 4. Serverless https://serverless.com
 
 ### Installation
-Serverless
-    # Installing the serverless cli
+##### Serverless
     npm install -g serverless
-    # Updating serverless from a previous version of serverless
-    npm install -g serverless
-    # Login to the serverless platform (optional)
-    serverless login
-NodeJS Package 
-`npm install`
-AWS Credentials Config
-`serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`
-
-Running Locally with Serverless
-
+##### NodeJS Package 
+    npm install
+##### AWS Credentials Config
+    serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+##### Running Locally with Serverless
+    serverless invoke local --function stocknotifier
 ### Deploying into AWS Lambda
     serverless deploy function -f hello
 ### S3 Website Hosting to Recive Pushnotifications from Lambda + OneSignal
 ### Setting up OneSignal 
 ### S3 Bucket and static website hosting
-
-
-
-
