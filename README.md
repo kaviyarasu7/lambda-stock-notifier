@@ -1,5 +1,11 @@
 # NSE and BSE Stock notifier based on Lambda + Serverless + NodeJS + OneSignal
 
+The app basically scraps NSE / BSE stock websites and send pushnotification to the web subscribers based on the condition defined into code.
+
+Features of Application
+1. Compeletly serverless with the help of serverless
+2. With lambda and Onesignal timely notification alert to the subscribers.
+
 Required 
 
 1. NodeJS https://nodejs.org/en
@@ -24,3 +30,7 @@ S3 Website Hosting to Recive Pushnotifications from Lambda + OneSignal
 
 Setting up OneSignal 
 S3 Bucket and static website hosting
+
+
+
+
