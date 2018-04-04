@@ -4,8 +4,8 @@ provider:
   runtime: nodejs6.10
   region: ap-south-1
   environment:
-    ONESIGNAL_APP_ID: "36532926-08bb-440a-a357-396cd36a9aa0"
-    ONESIGNAL_AUTH_KEY: "Basic Y2VlNTFmOTAtNGUzYy00Mzc5LWIxZDctOTQwNTI5ZDdhZTQz"
+    ONESIGNAL_APP_ID: "b7810c20-2c37-4c13-bfd8-4ae59d3252ae"
+    ONESIGNAL_AUTH_KEY: "Basic Y2U2MTQxZjYtMTY3My00MzhiLWE5YjQtMjFlM2VmYTkzZmQy"
 functions:
   stocknotifier:
     handler: handler.stocknotifier

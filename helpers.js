@@ -4,7 +4,7 @@ const request = require('axios');
 
 function extractListingsFromHTML (html) {
   const $ = cheerio.load(html);
-  const htmlData = $('#lastPrice').text().trim();  
+  const htmlData = $('#NewHide tr:nth-child(2) td:nth-child(2)').text().trim();  
   return htmlData;
 }
 
