@@ -1,12 +1,22 @@
 const request = require('axios');
-const {extractListingsFromHTML, sendPushNotification} = require('./helpers');
-var stocks = {};
+const {extractListingsFromHTML, sendPushNotification, getAllStockData, getAllStockDataParse} = require('./helpers');
+var stocks = [];
+var stocksList = [];
+var stocksListData = {};
+var stocksListURL = 'https://script.google.com/macros/s/AKfycbwxBcQ-BlbpTP_hUzZXnXJvcNTRnf8Whyt8eKHE4Chtl1P4MsLr/exec';
 module.exports.stocknotifier = (event, context, callback) => {
-     request.get('http://getquote.icicidirect.com/trading_stock_quote.aspx?Symbol=INDCOU')
-    	.then(({data}) => {
-      		stocks = extractListingsFromHTML(data);
-      		return sendPushNotification(stocks);
-    	}).then((res) => {
-         	callback(null, {stocks});  
-    	}).catch(callback);
+    request.get(stocksListURL).then(response => {
+  			return getAllStockData(response.data.records)
+  	}).then( promises => {
+  			return request.all(promises).then(request.spread((...args) => {
+        		for (let i = 0; i < args.length; i++) {
+            		stocks[i] = extractListingsFromHTML(args[i].data);
+        		}
+  			}))
+    }).then( response => {
+    		callback(null,{stocks})
+  	}).catch(error => {
+     			console.log(error);
+  	});
 };
+
