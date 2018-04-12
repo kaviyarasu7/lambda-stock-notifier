@@ -1,22 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>NSE and BSE Stock notifier based on Lamda + Serverless + NodeJS + OneSignal</title>
- 
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "b7810c20-2c37-4c13-bfd8-4ae59d3252ae",
-    });
-  });
-</script>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</head>
-<body>
-
-<h4>NSE and BSE Stock notifier based on Lamda + Serverless + NodeJS + OneSignal</h4>
-
-</body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+    <title>NSE and BSE Stock notifier based on Lambda,Serverless,NodeJS and OneSignal</title>
+  </head>
+  <body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h4>NSE and BSE Stock notifier based on Lambda,Serverless,NodeJS and OneSignal</h4>
+				<table class="table" id="stock-table">
+					<thead class="thead-dark">
+					<tr>
+					  <th scope="col">Code</th>
+					  <th scope="col">LTP</th>
+					  <th scope="col">Condition</th>
+					  <th scope="col">Value</th>
+					</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+	<script>
+		var OneSignal = window.OneSignal || [];
+		OneSignal.push(function() {
+		OneSignal.init({
+		  appId: "b7810c20-2c37-4c13-bfd8-4ae59d3252ae",
+		});
+		});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({url: "https://script.google.com/macros/s/AKfycbwxBcQ-BlbpTP_hUzZXnXJvcNTRnf8Whyt8eKHE4Chtl1P4MsLr/exec", success: function(result){
+            $.each( result.records, function( key, value ) {
+  				console.log(key,value);
+  				var markup = "<tr scope='row'><td>"+value.NSEStockCode+"</td><td>"+value.LTP+"</td><td>"+value.Condition+"</td><td>"+value.Value+"</td></tr>";
+            	$("#stock-table tbody").append(markup);
+			});
+    	}});
+	});
+	</script>
+  </body>
 </html>
