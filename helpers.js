@@ -16,20 +16,22 @@ function extractListingsFromHTML (html,stockWatchList) {
   
   var condition = parseFloat(cleanedSpace[1][1])+" "+stockWatchList.Condition+" "+parseFloat(stockWatchList.Value);
   if (eval(condition)) {
-    sendPushNotification(condition);
-    console.log("pass",condition);
+    sendPushNotification(stockWatchList.NSEStockCode+"-LTP:"+cleanedSpace[1][1]+stockWatchList.Condition+"YOURS:"+parseFloat(stockWatchList.Value));
   } else {
-    console.log("fail",condition);
+    // do nothing
   }
   return readableData;
 }
 
-function sendPushNotification(stocks)
+function sendPushNotification(message)
 {
 
       var msg = {
 		"app_id" : process.env.ONESIGNAL_APP_ID,
-		"contents" : {"en": stocks} ,
+		"contents" : {"en": message} ,
+    "url" : "https://kaviyarasu7.github.io/lambda-stock-notifier",
+    "chrome_web_image": "https://dummyimage.com/400x200/000/fff&text="+message,
+    "headings": {"en": "NSE and BSE Stock Notifier"},
 		"included_segments" : ["All"]
 		} ;
 
