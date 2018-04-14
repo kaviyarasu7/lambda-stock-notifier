@@ -1,4 +1,4 @@
-# NSE and BSE Stock notifier based on Lambda + Serverless + NodeJS + OneSignal
+# NSE and BSE Stock notifier based on AWS Lambda, Serverless, NodeJS and OneSignal
 
 The app basically scraps NSE / BSE stock websites and send pushnotification to the web subscribers based on the condition defined into code.
 
@@ -28,3 +28,9 @@ The app basically scraps NSE / BSE stock websites and send pushnotification to t
     serverless deploy function -f hello
 
 ### Screenshots
+
+[![](https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stock-watch-list.PNG)](http://https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stock-watch-list.PNG)
+
+[![](https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stocknotification-in-mobile.png)](http://https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stocknotification-in-mobile.png)
+
+[![](https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stocknotification-in-desktop.PNG)](http://https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stocknotification-in-desktop.PNG)
