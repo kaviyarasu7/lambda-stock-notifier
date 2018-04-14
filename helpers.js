@@ -36,6 +36,8 @@ function sendPushNotification(message) {
         },
         "url": "https://kaviyarasu7.github.io/lambda-stock-notifier",
         "chrome_web_image": "https://dummyimage.com/400x200/000/fff&text=" + message,
+        "small_icon":"https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/cloud256X256.png",
+        "chrome_web_icon":"https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/cloud256X256.png",
         "headings": {
             "en": "NSE and BSE Stock Notifier"
         },
