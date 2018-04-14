@@ -7,15 +7,20 @@ function extractListingsFromHTML(html, stockWatchList) {
     const $ = cheerio.load(html);
     cheerioTableparser($);
     htmlData = $("#NewHide table").parsetable(true, false, false);
-    var cleaned = _.each(htmlData, o => _.each(o, (v, k) => o[k] = v.trim()));
-    var cleanedSpace = _.each(cleaned, o => _.each(o, (v, k) => o[k] = v.replace(/ /g, "_")));
+
+    // data cleanup like remove spaces and replace _
+    var trimSpace = _.each(htmlData, o => _.each(o, (v, k) => o[k] = v.trim()));
+    var replaceUnderscore = _.each(trimSpace, o => _.each(o, (v, k) => o[k] = v.replace(/ /g, "_")));
     
-    var readableData = {"code":stockWatchList.NSEStockCode,"LAST_TRADE_PRICE_NSE":cleanedSpace[1][1],"LAST_TRADE_PRICE_BSE":cleanedSpace[2][1]};
+    var readableData = {
+      "code":stockWatchList.NSEStockCode,
+      "LAST_TRADE_PRICE_NSE":replaceUnderscore[1][1],
+      "LAST_TRADE_PRICE_BSE":replaceUnderscore[2][1]
+    };
 
-
-    var condition = parseFloat(cleanedSpace[1][1]) + " " + stockWatchList.Condition + " " + parseFloat(stockWatchList.Value);
+    var condition = parseFloat(replaceUnderscore[1][1]) + " " + stockWatchList.Condition + " " + parseFloat(stockWatchList.Value);
     if (eval(condition)) {
-        sendPushNotification(stockWatchList.NSEStockCode + "-LTP:" + cleanedSpace[1][1] + stockWatchList.Condition + "YOURS:" + parseFloat(stockWatchList.Value));
+        sendPushNotification(stockWatchList.NSEStockCode + "-LTP:" + replaceUnderscore[1][1] + stockWatchList.Condition + "YOURS:" + parseFloat(stockWatchList.Value));
     } else {
         // do nothing
     }
