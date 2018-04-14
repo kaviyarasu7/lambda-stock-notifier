@@ -6,6 +6,9 @@ The app basically scraps NSE / BSE stock websites and send pushnotification to t
 1. Compeletly serverless with the help of serverless
 2. With lambda and Onesignal timely notification alert to the subscribers.
 
+### Architecture
+[![](https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stock-notifier-arch.png)](http://https://kaviyarasu7.github.io/lambda-stock-notifier/screenshots/stock-notifier-arch.png)
+
 ### Requirments
 1. NodeJS https://nodejs.org/en
 2. Lambda https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
@@ -23,7 +26,5 @@ The app basically scraps NSE / BSE stock websites and send pushnotification to t
     serverless invoke local --function stocknotifier
 ##### Deploying into AWS Lambda
     serverless deploy function -f hello
-### Receving Pushnotification from Lambda + OneSignal
-##### S3 Website Hosting to Recive Pushnotifications from Lambda + OneSignal
-##### Setting up OneSignal 
-##### S3 Bucket and static website hosting
+
+### Screenshots
