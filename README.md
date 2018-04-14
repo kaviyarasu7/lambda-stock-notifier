@@ -2,6 +2,8 @@
 
 The app basically scraps NSE / BSE stock websites and send push notification to the web subscribers based on the condition defined in the google spreadsheet.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ### Features of Application
 1. Compeletly serverless with the help of serverless
 2. With lambda and Onesignal timely notification alert to the subscribers.
