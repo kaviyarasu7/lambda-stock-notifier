@@ -25,7 +25,7 @@ The app basically scraps NSE / BSE stock websites and send pushnotification to t
 ##### Running Locally with Serverless
     serverless invoke local --function stocknotifier
 ##### Deploying into AWS Lambda
-    serverless deploy function -f hello
+    serverless deploy function -f stocknotifier
 
 ### Screenshots
 
